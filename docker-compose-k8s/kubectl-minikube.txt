@@ -1,0 +1,23 @@
+Install chocolatey      https://chocolatey.org/
+
+### Optional                choco install cmder -y
+
+Install             minikube
+    Get-NetAdapter
+	New-VMSwitch –Name "PrimaryVirtualSwitch" –AllowManagement $True –NetAdapterName "Wi-Fi"
+	### Remove-VMSwitch –Name "PrimaryVirtualSwitch"
+
+minikube start --vm-driver=hyperv --hyperv-virtual-switch=PrimaryVirtualSwitch --disk-size=10g --memory=4096
+### minikube delete/ip/status
+kubectl run --image=registry.hub.docker.com/jibijose/springwebapp:1.0 springwebapp-deployment --port=8080 --env="DOMAIN=cluster"
+kubectl expose deployment springwebapp-deployment --type=LoadBalancer --name=springwebapp-service
+### curl -v http://[minikup ip]:[kubectl get service springwebapp-service:3xxxx port]/customisup
+
+
+kubectl delete service springwebapp-service
+kubectl delete deployment springwebapp-deployment
+
+kubectl get node
+kubectl get pod
+kubectl get deployment
+kubectl get service
